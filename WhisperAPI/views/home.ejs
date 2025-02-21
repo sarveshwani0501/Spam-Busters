@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Snipper</title>
+</head>
+<body>
+    <h2>Upload an Audio File for Transcription</h2>
+    
+    <form action="/spamsnipper" method="POST" enctype="multipart/form-data">
+        <label for="lang">Enter your language</label>
+        <input type="text" name = "lang" id = "lang">
+        <br><br>
+        <label for="audioFile">Select Audio File:</label>
+        <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+        <br><br>
+        <button type="submit">Upload & Transcribe</button>
+    </form>
+
+    <hr>
+
+    <% if (typeof userLangtranscript !== "undefined" && typeof engLangTranscript !== "undefined") { %>
+        <h3>Transcribed Text in user language:</h3>
+        <p><%= userLangtranscript %></p>
+        <br>
+        <h3>Transcribed Text in english language:</h3>
+        <p><%= engLangTranscript %></p>
+    <% } %>
+</body>
+</html>
